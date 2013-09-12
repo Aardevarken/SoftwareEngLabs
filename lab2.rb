@@ -63,14 +63,10 @@ def rps_game_winner(game)
 end
 
 def rps_tournament_winner(games)
-	if games[0][0].instance_of? String and games[1][0].instance_of? String
-		print games[0]
-		puts
-		print games[1]
-		puts
-		return rps_game_winner([games[0],games[1]])
+	if games[0][0].instance_of? String
+		return(rps_game_winner([games[0],games[1]]))
 	else
-		return rps_tournament_winner([games[0][0], games[1][0]])
+		return rps_tournament_winner([rps_tournament_winner(games[0]),rps_tournament_winner(games[1])])
 	end
 end
 
